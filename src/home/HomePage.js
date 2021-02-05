@@ -134,7 +134,7 @@ function HomePage(props) {
       image: item,
       numberOfBackers: "216 backers",
       price: "USD 15.00",
-      description: "Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders"
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta labore illum eum debitis repellat tempore inventore aspernatur, consectetur sapiente quisquam repudiandae culpa natus numquam, vitae magni ea non mollitia maxime? Impedit libero cum eligendi perferendis eos suscipit voluptates magnam accusamus harum reprehenderit, quos iure cupiditate. Officiis obcaecati vitae doloremque! Similique necessitatibus quis exercitationem doloremque consequatur a sapiente impedit eos nemo? Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders"
     },
     {
       name: "Series 2 Sets",
@@ -156,7 +156,7 @@ function HomePage(props) {
     title: "Pocket-Tactics Series 2: Coils of Chaos",
     creatorName: "IllGottenGames",
     creatorAvatar: creatorAvatar,
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos." + 
+    description: "LOREM ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos." + 
                   "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita, ex explicabo. Delectus quibusdam cumque, dicta earum, vero sit iste tempore consequatur mollitia libero minus distinctio praesentium illo eum ad temporibus excepturi laborum dignissimos beatae quae repudiandae. Saepe, amet consectetur? Tempore amet libero dolor culpa asperiores consequatur sequi id rem dignissimos."
   }
 
@@ -275,7 +275,8 @@ function HomePage(props) {
             Add-ons
           </Typography>
           <br />
-          <Grid container spacing={3}>
+          <div height='40rem'>
+          <Grid container height="40rem" spacing={3}>
             {addOns.map(
               (item) =>
                 item &&
@@ -286,9 +287,10 @@ function HomePage(props) {
                 )
             )}
           </Grid>
+          </div>
         </Paper>
       </Box>
     </Box>
   );
 }
-export default HomePage;
+export default HomePage

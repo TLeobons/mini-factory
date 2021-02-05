@@ -1,8 +1,8 @@
-import React from "react";
-import { Typography, Button, Box, makeStyles } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import PersonIcon from "@material-ui/icons/Person";
+import React from "react"
+import { Typography, Button, Box, makeStyles } from "@material-ui/core"
+import {Grid,Paper} from "@material-ui/core"
+import PersonIcon from "@material-ui/icons/Person"
+
 const useStyles = makeStyles((theme) => ({
   textAlignRight: {
     textAlign: "right",
@@ -17,8 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Pledge(props) {
-  const classes = useStyles();
+const Pledge = props => {
+
+  const classes = useStyles()
+
   return (
     <Paper elevation={3} style={{ padding: 10 }}>
       <Grid container spacing={1}>
@@ -72,4 +74,4 @@ function Pledge(props) {
     </Paper>
   );
 }
-export default Pledge;
+export default Pledge
