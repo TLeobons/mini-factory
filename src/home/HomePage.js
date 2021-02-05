@@ -211,6 +211,7 @@ function HomePage(props) {
                 <img
                   src={creatorAvatar}
                   className={classes.creatorAvatarRibbon}
+                  alt=''
                 />
                 IllGottenGames
               </Typography>

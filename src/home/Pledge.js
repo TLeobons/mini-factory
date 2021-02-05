@@ -23,7 +23,7 @@ function Pledge(props) {
     <Paper elevation={3} style={{ padding: 10 }}>
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <img src={props.data.image} style={{ width: "100%" }} />
+          <img src={props.data.image} style={{ width: "100%" }} alt=''/>
         </Grid>
         <Grid item container xs={12} justify="space-between">
           <Typography variant="h5" gutterBottom>
@@ -59,7 +59,7 @@ function Pledge(props) {
         {props.data.includesText && (
           <Grid item xs={12}>
             <Typography className={classes.textAlignRight}>
-              <a target="_blank" href={props.data.link}>{props.data.includesText}</a>
+              <a target="_blank" rel="noopener noreferrer" href={props.data.link}>{props.data.includesText}</a>
             </Typography>
           </Grid>
         )}
