@@ -32,7 +32,6 @@ interface Props {
   };
 }
 function Pledge(props: Props) {
-  console.log(props.data);
   const classes = useStyles();
   return (
     <Paper elevation={3} style={{ padding: 10 }}>

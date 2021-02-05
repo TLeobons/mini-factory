@@ -82,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
 
 function HomePage() {
   const classes = useStyles();
-  let pledgeRef = useRef<HTMLHeadingElement>(null);
-  let addOnRef = useRef<HTMLHeadingElement>(null);
+  const pledgeRef = useRef<HTMLHeadingElement>(document.createElement("h4"));
+  const addOnRef = useRef<HTMLHeadingElement>(document.createElement("h4"));
   const [visible, setVisible] = useState(false);
 
   let pledge = [
@@ -220,22 +220,23 @@ function HomePage() {
         </div>
         <Box
           className={classes.ribbonItem}
-          // onClick={() =>
-          //   window.scrollTo({
-          //     behavior: "smooth",
-          //     top: pledgeRef.current.offsetTop,
-          //   })
-          // }
+          onClick={() =>
+            window.scrollTo({
+              behavior: "smooth",
+              top: pledgeRef.current.offsetTop,
+            })
+          }
         >
           Pledges (2)
         </Box>
         <Box
           className={classes.ribbonItem}
-          // onClick={() =>
-          //   window.scrollTo({
-          //     behavior: "smooth",
-          //     top: addOnRef.current.offsetTop,
-          //   })
+          onClick={() =>
+            window.scrollTo({
+              behavior: "smooth",
+              top: addOnRef.current.offsetTop,
+            })
+          }
         >
           Add-On (6)
         </Box>
