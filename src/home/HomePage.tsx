@@ -82,8 +82,8 @@ const useStyles = makeStyles((theme) => ({
 
 function HomePage() {
   const classes = useStyles();
-  let pledgeRef = useRef();
-  let addOnRef = useRef();
+  let pledgeRef = useRef<HTMLHeadingElement>(null);
+  let addOnRef = useRef<HTMLHeadingElement>(null);
   const [visible, setVisible] = useState(false);
 
   let pledge = [
@@ -168,7 +168,7 @@ function HomePage() {
         setVisible(false);
       }
     };
-  }, []);
+  }, [pledgeRef,addOnRef]);
 
   return (
     <Box>
@@ -220,13 +220,22 @@ function HomePage() {
         </div>
         <Box
           className={classes.ribbonItem}
-          
+          // onClick={() =>
+          //   window.scrollTo({
+          //     behavior: "smooth",
+          //     top: pledgeRef.current.offsetTop,
+          //   })
+          // }
         >
           Pledges (2)
         </Box>
         <Box
           className={classes.ribbonItem}
-          
+          // onClick={() =>
+          //   window.scrollTo({
+          //     behavior: "smooth",
+          //     top: addOnRef.current.offsetTop,
+          //   })
         >
           Add-On (6)
         </Box>
@@ -234,14 +243,14 @@ function HomePage() {
       </Box>
       <Box className={classes.marginHundred}>
         <Paper className={classes.bottomPaper}>
-          {/* <Typography
+          <Typography
             variant="h4"
             gutterBottom
             color={"textSecondary"}
             ref={pledgeRef}
           >
             Pledges
-          </Typography> */}
+          </Typography>
           <br />
           <Grid container spacing={3}>
             {pledge.map(
@@ -256,14 +265,14 @@ function HomePage() {
           </Grid>
           <br />
           <br />
-          {/* <Typography
+          <Typography
             variant="h4"
             gutterBottom
             color={"textSecondary"}
             ref={addOnRef}
           >
             Add-ons
-          </Typography> */}
+          </Typography>
           <br />
           <Grid container spacing={3}>
             {addOns.map(
