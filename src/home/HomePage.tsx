@@ -79,13 +79,20 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
   },
 }));
-
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
 function HomePage() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
   const classes = useStyles();
   const pledgeRef = useRef<HTMLHeadingElement>(document.createElement("h4"));
   const addOnRef = useRef<HTMLHeadingElement>(document.createElement("h4"));
   const [visible, setVisible] = useState(false);
-
+  
   let pledge = [
     {
       name: "Series 2 Sets",
@@ -103,7 +110,7 @@ function HomePage() {
       price: "USD 15.00",
       includesText: "Includes 5 products",
       link: 'https://www.google.com/',
-      description: "Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted"
+      description: "Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders"
     }
   ];
 
@@ -113,7 +120,7 @@ function HomePage() {
       image: item,
       numberOfBackers: "216 backers",
       price: "USD 15.00",
-      description: "Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders"
+      description: "Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders Includes five sets: Faithful of the Luminous Goddess, Dreth of the Bloodlands, War Tribes of the Central Expanse, Benighted Kingdom of the Hissthk, and Dust Sea Marauders"
     },
     {
       name: "Series 2 Sets",
@@ -161,6 +168,11 @@ function HomePage() {
   }
 
   useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
     window.onscroll = () => {
       if (window.pageYOffset > 550) {
         setVisible(true);
@@ -168,7 +180,8 @@ function HomePage() {
         setVisible(false);
       }
     };
-  }, [pledgeRef,addOnRef]);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [pledgeRef,addOnRef,setWindowDimensions]);
 
   return (
     <Box>
@@ -259,7 +272,7 @@ function HomePage() {
                 item &&
                  (
                   <Grid item sm={4} xs={12} spacing={1}>
-                    <Pledge  data={item}/>
+                    <Pledge dimensions= {windowDimensions} data={item}/>
                   </Grid>
                 )
             )}
@@ -281,7 +294,7 @@ function HomePage() {
                 item &&
                  (
                   <Grid item sm={4} xs={12} spacing={1}>
-                    <Pledge  data={item}/>
+                    <Pledge dimensions= {windowDimensions} data={item}/>
                   </Grid>
                 )
             )}
