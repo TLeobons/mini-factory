@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   pledgeDescription: {
     paddingTop: "20px",
     paddingBottom: "20px",
-    overflowY: 'auto', maxHeight: 'calc(100vh - 503px)', minHeight: 'calc(100vh - 503px)',
+    overflowY: 'auto', maxHeight: 'calc(100vh - 563px)', minHeight: 'calc(100vh - 563px)',
     '&::-webkit-scrollbar': {
       display: 'none',
     },
