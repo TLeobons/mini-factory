@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   pledgeDescription: {
     paddingTop: "20px",
     paddingBottom: "20px",
-    overflowY: 'auto', maxHeight: 'calc(100vh - 457px)', minHeight: 'calc(100vh - 437px)',
+    overflowY: 'auto', maxHeight: 'calc(100vh - 503px)', minHeight: 'calc(100vh - 503px)',
     '&::-webkit-scrollbar': {
       display: 'none',
     },
@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 interface Props {
+  dimensions: {
+    width: number;
+    height: number;
+  },
   data: {
     image: string;
     name: string;
@@ -32,6 +36,7 @@ interface Props {
   };
 }
 function Pledge(props: Props) {
+  props.dimensions.width = props.dimensions.width;
   const classes = useStyles();
   return (
     <Paper elevation={3} style={{ padding: 10 }}>
@@ -78,7 +83,7 @@ function Pledge(props: Props) {
           </Grid>
         )}
         <Grid item xs={12}>
-          <Typography  className={classes.pledgeDescription}>
+          <Typography noWrap = {props.dimensions.width< 600 ? true : false} className={classes.pledgeDescription}>
             {props.data.description}
           </Typography>
         </Grid>
